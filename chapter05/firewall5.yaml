@@ -111,7 +111,7 @@ Resources:
         'Fn::Base64': !Sub |
           #!/bin/bash -ex
           trap '/opt/aws/bin/cfn-signal -e 1 --stack ${AWS::StackName} --resource Proxy --region ${AWS::Region}' ERR
-          amazon-linux-extras install haproxy2
+          dnf install haproxy2
           cat <<"EOF" | tee /etc/haproxy2/haproxy2.cfg > /dev/null
           # ---------------------------------------------------------------------
           # Example configuration for a possible web application.  See the
